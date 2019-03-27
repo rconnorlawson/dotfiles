@@ -2,6 +2,9 @@
 export PLATFORM=linux
 export DIRSTACKFILE=$HOME/.cache/zdirs
 
+# Vim files
+alias vim="vim -i $HOME/.vim/viminfo"
+
 # Paths
 
 ## Local packages

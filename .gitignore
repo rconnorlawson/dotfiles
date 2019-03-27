@@ -1,2 +1,4 @@
 # Vim packages
 vim/.vim/pack
+vim/.vim/viminfo
+vim/.vim/.netrwhist
