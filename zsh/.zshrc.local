@@ -1,0 +1,68 @@
+# Environment
+export PLATFORM=linux
+export DIRSTACKFILE=$HOME/.cache/zdirs
+
+# Paths
+
+## Local packages
+export PATH="$PATH:/home/clawson/.local/bin"
+
+## CUDA
+export PATH="$PATH:/usr/local/cuda-8.0/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64"
+
+# Arduino
+export PATH="$PATH:/home/clawson/workspace/arduino-1.8.5"
+
+# Aliases
+
+## ECE 2035
+misasim()
+{
+    pushd ~/ece2035/Misasim/bin
+    python2.7 Misasim.py
+    popd
+}
+
+## Git
+alias g='git status --short --branch'
+alias gh="git hist"
+alias gdh='git dhist'
+alias gp="git pull"
+alias gpr="git pull --rebase"
+alias gf="git fetch"
+alias gb="git branch"
+alias ga="git add"
+alias gc="git commit"
+alias gca="git commit --amend"
+alias gd="git diff --color-words"
+alias gco="git checkout"
+
+gdc() {
+    git diff --color $1~ $1
+}
+
+# TeXLive
+export TEXMFHOME=/home/clawson/.texmf
+
+# Conda
+start_conda() {
+    export PATH=/home/clawson/miniconda3/bin:$PATH
+}
+export IPYTHONDIR=$HOME/.config/ipython
+
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/clawson/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/clawson/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/clawson/miniconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/home/clawson/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
