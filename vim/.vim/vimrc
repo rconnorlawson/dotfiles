@@ -1,5 +1,6 @@
 " Plugins
 call plug#begin('~/.vim/pack')
+
 " Org-mode and supporting plugins
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
@@ -18,6 +19,9 @@ Plug 'tpope/vim-surround'
 " Usability
 Plug 'mbbill/undotree'
 nnoremap <F5> :UndotreeToggle<cr>
+
+" Misc
+Plug 'vim-scripts/loremipsum'
 
 call plug#end()
 
