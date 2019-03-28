@@ -2,3 +2,6 @@
 vim/.vim/pack
 vim/.vim/viminfo
 vim/.vim/.netrwhist
+
+# IPython
+history.sqlite
