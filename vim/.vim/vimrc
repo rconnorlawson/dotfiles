@@ -10,10 +10,12 @@ Plug 'mattn/calendar-vim'
 Plug 'inkarkat/vim-SyntaxRange'
 Plug 'chrisbra/NrrwRgn'
 
-" Multiple cursors
+" Editing
 Plug 'terryma/vim-multiple-cursors'
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-surround'
 
-" Usability plugins
+" Usability
 Plug 'mbbill/undotree'
 nnoremap <F5> :UndotreeToggle<cr>
 
