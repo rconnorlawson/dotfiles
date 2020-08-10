@@ -8,11 +8,12 @@ alias vim="vim -i $HOME/.vim/viminfo"
 # Paths
 
 ## Local packages
-export PATH="$PATH:/home/clawson/.local/bin"
+export PATH="/home/clawson/.local/bin:$PATH"
 
 ## CUDA
-export PATH="$PATH:/usr/local/cuda-8.0/bin"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64"
+export PATH="$PATH:/usr/local/cuda/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+export CUDA_ROOT="/usr/local/cuda/bin"
 
 # Arduino
 export PATH="$PATH:/home/clawson/workspace/arduino-1.8.5"
@@ -38,8 +39,9 @@ alias gb="git branch"
 alias ga="git add"
 alias gc="git commit"
 alias gca="git commit --amend"
-alias gd="git diff --color-words"
+alias gd="git diff"
 alias gco="git checkout"
+alias grv="git remote -v"
 
 gdc() {
     git diff --color $1~ $1
