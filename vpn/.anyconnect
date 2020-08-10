@@ -7,7 +7,7 @@
 <ServerCertificateThumbprint></ServerCertificateThumbprint>
 <DefaultHostName>anyc.vpn.gatech.edu</DefaultHostName>
 <DefaultHostAddress></DefaultHostAddress>
-<DefaultGroup>gatech</DefaultGroup>
+<DefaultGroup>gatech-2fa-Duo</DefaultGroup>
 <ProxyHost></ProxyHost>
 <ProxyPort></ProxyPort>
 <SDITokenType>none</SDITokenType>
