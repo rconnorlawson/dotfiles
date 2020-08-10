@@ -21,6 +21,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 nnoremap <F5> :UndotreeToggle<cr>
 
+" Colorschemes
+Plug 'doums/darcula'
+
 " Misc
 Plug 'vim-scripts/loremipsum'
 
@@ -39,6 +42,9 @@ set tabstop=4
 set shiftwidth=4
 "set smartindent
 
+" Line width
+set textwidth=80
+
 filetype plugin indent on
 syntax on
 
@@ -49,3 +55,4 @@ set number
 " control
 let mapleader = ","
 "nnoremap <Leader>ev 
+set whichwrap=b,s,h,l,<,>
