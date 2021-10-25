@@ -10,15 +10,23 @@ Plug 'vim-scripts/utl.vim'
 Plug 'mattn/calendar-vim'
 Plug 'inkarkat/vim-SyntaxRange'
 Plug 'chrisbra/NrrwRgn'
+Plug 'fidian/hexmode'
 
 " Editing
 Plug 'terryma/vim-multiple-cursors'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-surround'
+Plug 'timakro/vim-yadi', {'branch' : 'main'}
+Plug 'preservim/nerdcommenter'
 
 " Usability
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
+
+" Appearannce
+Plug 'tribela/vim-transparent'
+Plug 'bfrg/vim-cuda-syntax'
+
 nnoremap <F5> :UndotreeToggle<cr>
 
 " Colorschemes
@@ -29,6 +37,8 @@ Plug 'vim-scripts/loremipsum'
 
 call plug#end()
 
+colorscheme darcula
+
 " Directory navigation
 map <F2> :NERDTreeToggle<CR>
 
@@ -36,16 +46,19 @@ map <F2> :NERDTreeToggle<CR>
 let g:org_indent = 1 " Indent in subheadings
 
 " indentation
-set expandtab
-set smarttab
+autocmd BufRead * DetectIndent
+filetype plugin on
+set expandtab shiftwidth=4 softtabstop=4
 set tabstop=4
-set shiftwidth=4
-"set smartindent
+"set expandtab
+"set smarttab
+"set tabstop=2
+"set shiftwidth=2
+""set smartindent
 
 " Line width
 set textwidth=80
 
-filetype plugin indent on
 syntax on
 
 " display
@@ -56,3 +69,22 @@ set number
 let mapleader = ","
 "nnoremap <Leader>ev 
 set whichwrap=b,s,h,l,<,>
+
+" folding
+function! NeatFoldText() "{{{2
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+" }}}2
+
+" NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
